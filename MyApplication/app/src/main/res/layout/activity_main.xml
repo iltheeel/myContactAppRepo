@@ -4,40 +4,109 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.liaiwei.myapplication.MainActivity">
-
-    <Button
-        android:id="@+id/button_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Data"
-        tools:layout_editor_absoluteX="164dp"
-        tools:layout_editor_absoluteY="320dp" />
+    tools:context="com.example.liaiwei.myapplication.MainActivity"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
 
     <EditText
         android:id="@+id/editText_name"
-        android:layout_width="234dp"
-        android:layout_height="41dp"
+        android:layout_width="225dp"
+        android:layout_height="0dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text=""
-        tools:layout_editor_absoluteX="108dp"
-        tools:layout_editor_absoluteY="198dp" />
+        tools:layout_editor_absoluteY="90dp"
+        tools:layout_editor_absoluteX="124dp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="225dp"
+        android:layout_height="0dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteX="124dp"
+        tools:layout_editor_absoluteY="90dp" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/guideline"
         app:layout_constraintGuide_begin="20dp"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteY="20dp"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="81dp"
-        android:layout_height="40dp"
+        android:layout_height="43dp"
         android:text="NAME:"
-        android:textAppearance="@android:style/TextAppearance.Holo.Large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        tools:layout_editor_absoluteY="98dp"
+        tools:layout_editor_absoluteX="29dp" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline2"
+        app:layout_constraintGuide_begin="20dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteY="20dp"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline3"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="96dp" />
+
+    <Button
+        android:id="@+id/addbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="addData"
+        android:text="Add Data"
+        tools:layout_editor_absoluteY="351dp"
+        tools:layout_editor_absoluteX="146dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="83dp"
+        android:layout_height="45dp"
+        android:text="ADDRESS:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="179dp" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="124dp"
+        tools:layout_editor_absoluteY="171dp" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="124dp"
+        tools:layout_editor_absoluteY="260dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="126dp"
+        android:layout_height="62dp"
+        android:text="PHONE NUMBER:"
+        android:textColor="@android:color/black"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="206dp" />
+        tools:layout_editor_absoluteY="269dp" />
 
 </android.support.constraint.ConstraintLayout>
