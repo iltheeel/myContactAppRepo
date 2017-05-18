@@ -2,6 +2,7 @@ package com.example.liaiwei.myapplication;
 
 import android.app.AlertDialog;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,20 +36,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void searchByName(View v) {
-        Cursor res = myDb.getAllData();
+
+        Cursor res = myDb.findData(findName.getText().toString());
         if (res.getCount() ==0) {
             Toast.makeText(getApplicationContext(), "DATA NOT FOUND", Toast.LENGTH_SHORT).show();
             //put logd and toast here
             return;
         }
 
+        StringBuffer buffer = new StringBuffer();
+        // setup loop with moveToNext method
+        //append each col to buffer
+       // while(!res.isLast()){
 
-        while(!res.isLast()){
-            if(res.getString(2).toString().equals(findName)) {
-                String result = "Person found: \n"
-                showMessage("app", )
-            }
-        }
+            res.moveToNext();
+
+            // for(int i =0; i<4; i++) {
+            buffer.append(" \n ID : ");
+            buffer.append(res.getString(0));
+            buffer.append(" \n Name: ");
+            buffer.append(res.getString(1));
+            buffer.append(" \n Address: ");
+            buffer.append(res.getString(2));
+            buffer.append(" \n Phone Number: ");
+            buffer.append(res.getString(3));
+
+       // }
+        Log.d("MyContact", buffer.toString());
+
+        showMessage("app", buffer.toString());
 
     }
 
