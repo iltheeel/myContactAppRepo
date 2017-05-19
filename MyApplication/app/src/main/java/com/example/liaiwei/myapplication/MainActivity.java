@@ -1,6 +1,7 @@
 package com.example.liaiwei.myapplication;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -24,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        myDb = new DatabaseHelper(this);
+        myDb= new DatabaseHelper(this);
 
         editName = (EditText) findViewById( R.id.editText_name);
         editAddress= (EditText) findViewById( R.id.editText2);
@@ -35,23 +35,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     public void searchByName(View v) {
 
         Cursor res = myDb.findData(findName.getText().toString());
         if (res.getCount() ==0) {
             Toast.makeText(getApplicationContext(), "DATA NOT FOUND", Toast.LENGTH_SHORT).show();
-            //put logd and toast here
+            //put logd and toast here3
             return;
         }
 
         StringBuffer buffer = new StringBuffer();
-        // setup loop with moveToNext method
-        //append each col to buffer
-       // while(!res.isLast()){
 
             res.moveToNext();
 
-            // for(int i =0; i<4; i++) {
+
             buffer.append(" \n ID : ");
             buffer.append(res.getString(0));
             buffer.append(" \n Name: ");
@@ -61,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
             buffer.append(" \n Phone Number: ");
             buffer.append(res.getString(3));
 
-       // }
         Log.d("MyContact", buffer.toString());
 
         showMessage("app", buffer.toString());
