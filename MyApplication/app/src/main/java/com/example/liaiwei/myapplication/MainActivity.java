@@ -36,35 +36,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void searchByName(View v) {
-
-        Cursor res = myDb.findData(findName.getText().toString());
-        if (res.getCount() ==0) {
-            Toast.makeText(getApplicationContext(), "DATA NOT FOUND", Toast.LENGTH_SHORT).show();
-            //put logd and toast here3
-            return;
-        }
-
-        StringBuffer buffer = new StringBuffer();
-
-            res.moveToNext();
-
-
-            buffer.append(" \n ID : ");
-            buffer.append(res.getString(0));
-            buffer.append(" \n Name: ");
-            buffer.append(res.getString(1));
-            buffer.append(" \n Address: ");
-            buffer.append(res.getString(2));
-            buffer.append(" \n Phone Number: ");
-            buffer.append(res.getString(3));
-
-        Log.d("MyContact", buffer.toString());
-
-        showMessage("app", buffer.toString());
-
-    }
-
     public void addData(View v) {
 
         boolean isInserted = myDb.insertData(editName.getText().toString(), editAddress.getText().toString(), editNumber.getText().toString());
@@ -107,7 +78,35 @@ public class MainActivity extends AppCompatActivity {
         }
         Log.d("MyContact", buffer.toString());
 
-        showMessage("app", buffer.toString());
+        showMessage("Contacts", buffer.toString());
+    }
+
+    public void searchByName(View v) {
+
+        Cursor res = myDb.findData(findName.getText().toString());
+        if (res.getCount() ==0) {
+            Toast.makeText(getApplicationContext(), "DATA NOT FOUND", Toast.LENGTH_SHORT).show();
+            //put logd and toast here3
+            return;
+        }
+
+        StringBuffer buffer = new StringBuffer();
+
+        res.moveToNext();
+
+        buffer.append(" \n ID : ");
+        buffer.append(res.getString(0));
+        buffer.append(" \n Name: ");
+        buffer.append(res.getString(1));
+        buffer.append(" \n Address: ");
+        buffer.append(res.getString(2));
+        buffer.append(" \n Phone Number: ");
+        buffer.append(res.getString(3));
+
+        Log.d("MyContact", buffer.toString());
+
+        showMessage("Found Contact", buffer.toString());
+
     }
 
     private void showMessage(String title, String mssg) {

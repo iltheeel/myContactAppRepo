@@ -43,12 +43,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public Cursor findData(String name) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("SELECT ID, NAME, ADDRESS, NUMBER FROM Contact_table WHERE NAME = ? " , new String[] {name});
-        return res;
-    }
-
     public boolean insertData (String name, String address, String number) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -66,7 +60,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-
+    public Cursor findData(String name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("SELECT ID, NAME, ADDRESS, NUMBER FROM Contact_table WHERE NAME = ? " , new String[] {name});
+        return res;
+    }
 
     public Cursor getAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
